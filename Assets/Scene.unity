@@ -2803,6 +2803,8 @@ MonoBehaviour:
   health: 0
   anime: {fileID: 0}
   rb: {fileID: 0}
+  attackRange: 6
+  player: {fileID: 1157712722}
 --- !u!4 &1851974426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 407626, guid: efff92728486e44de9714de91b3abbd2, type: 3}
