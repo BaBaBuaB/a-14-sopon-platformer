@@ -44,6 +44,9 @@ public class Crocodile : Enemy
 
     private void Shoot()
     {
-        bullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+        if (bulletTimer < 0)
+        {
+            bullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+        }
     }
 }
