@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 32888427}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.13, y: 1, z: 0.04526273}
+  m_LocalPosition: {x: -5, y: 1.2, z: 0.04526273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -289,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 101707055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.87, y: 1, z: 0.04526273}
+  m_LocalPosition: {x: -1.65, y: 1.2, z: 0.04526273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -478,7 +478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491758, guid: 3eeab7ca4bdca4ba382826bdc99b4911, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.35
+      value: 1.278
       objectReference: {fileID: 0}
     - target: {fileID: 491758, guid: 3eeab7ca4bdca4ba382826bdc99b4911, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1959,6 +1959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fe5b74aceafe7746918dcfaf6c389e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   anime: {fileID: 0}
   rb: {fileID: 0}
 --- !u!4 &1158766734 stripped
@@ -2382,8 +2383,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444907551ba772a4cb6afc9240d2bfd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   anime: {fileID: 0}
   rb: {fileID: 0}
+  velocity: {x: -1, y: 0}
+  movePoints:
+  - {fileID: 32888428}
+  - {fileID: 101707056}
 --- !u!4 &1493215482 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 407626, guid: efff92728486e44de9714de91b3abbd2, type: 3}
@@ -2794,6 +2800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 283f253807dc40e4a83b23a24e981271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
   anime: {fileID: 0}
   rb: {fileID: 0}
 --- !u!4 &1851974426 stripped

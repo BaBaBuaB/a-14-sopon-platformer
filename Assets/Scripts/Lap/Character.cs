@@ -4,11 +4,16 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    private int health;
+    [SerializeField] private int health;
     public int Health
     { 
         get { return health; }
         set { health = value; }
+    }
+
+    public void Init(int newHealth)
+    {
+        Health = newHealth;
     }
 
     public Animator anime;
