@@ -8,12 +8,16 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]private int damage;
     public int Damage 
     {  
-        get { return Damage; }
-        set { Damage = value; }
+        get { return damage; }
+        set { damage = value; }
     }
     protected string owner;
 
-    //public abstract void OnHitWith(Character);
+    public void Init(int _damage)
+    {
+      Damage = _damage;
+    }
+    public abstract void OnHitWith(Character character);
     public abstract void Move();
     public int GetShootDirection() 
     {

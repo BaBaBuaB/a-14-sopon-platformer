@@ -9,14 +9,15 @@ public class Banana : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        Damage = 30;
+        Init(30);
         speed = 4f;
+        Move();
     }
 
-    /*public override void OnHitWith(Character)
+    public override void OnHitWith(Character character)
     {
 
-    }*/
+    }
 
     public override void Move()
     {

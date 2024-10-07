@@ -10,13 +10,14 @@ public class Rock : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        Damage = 40;
+        Init(40);
+        Move();
     }
 
-    /*public override void OnHitWith(Character)
+    public override void OnHitWith(Character character)
     {
 
-    }*/
+    }
 
     public override void Move()
     {
