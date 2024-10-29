@@ -2,33 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crocodile : Enemy
+public class Crocodile : Enemy, IShootable
 {
-    [SerializeField]private float attackRange;
-    [SerializeField]private Player player;
+    private float attackRange;
+    public float AttackRange
+    { get { return attackRange; } set { attackRange = value; } }
 
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private Transform bulletSpawnPoint;
-    [SerializeField] private float bulletWaitTime;
-    [SerializeField
-        ] private float bulletTimer;
+    public Player player;
+
+    [field: SerializeField]
+    GameObject bullet;
+    public GameObject Bullet
+    { get { return bullet; } set {  bullet = value; } }
+
+    [field: SerializeField]
+    Transform bulletSpawnPoint;
+    public Transform BulletSpawnPoint
+    { get { return bulletSpawnPoint; } set { bulletSpawnPoint = value; } }
+
+    public float BulletWaitTime
+    { get; set; }
+
+    public float BulletTimer
+    { get; set; }
 
     private void Start()
     {
-        Init(100);
-        Debug.Log($"Ant's Hp = {Health}");
+        Init(30);
+        BulletWaitTime = 0.0f;
+        BulletTimer = 6.0f;
+        DamageHit = 30;
+        AttackRange = 6f;
+        player = GameObject.FindObjectOfType<Player>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        bulletTimer -= Time.deltaTime;
+        BulletWaitTime += Time.fixedDeltaTime;
 
         Behaviour();
-
-        if (bulletTimer < 0)
-        {
-            bulletTimer = bulletWaitTime;
-        }
     }
 
     public override void Behaviour()
@@ -42,11 +54,12 @@ public class Crocodile : Enemy
         }
     }
 
-    private void Shoot()
+    public void Shoot()
     {
-        if (bulletTimer < 0)
+        if (BulletWaitTime >= BulletTimer)
         {
-            bullet = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            BulletWaitTime = 0;
         }
     }
 }

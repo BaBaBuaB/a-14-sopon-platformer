@@ -21,11 +21,19 @@ public abstract class Character : MonoBehaviour
 
     public bool IsDead()
     {
-      return Health <= 0; 
+      if (Health <= 0) 
+      { 
+            Destroy(this.gameObject);
+            return true;
+      }
+      else return false; 
     }
 
     public void TakeDamage(int damage)
     {
         Health -= damage;
+        Debug.Log($"Character takes {damage}! Remaining Health = {Health}.");
+
+        IsDead();
     }
 }

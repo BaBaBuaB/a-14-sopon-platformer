@@ -11,10 +11,5 @@ public abstract class Enemy : Character
         set { damageHit = value; }
     }
 
-    private void Start()
-    {
-        Behaviour();
-    }
-
     public abstract void Behaviour();
 }
