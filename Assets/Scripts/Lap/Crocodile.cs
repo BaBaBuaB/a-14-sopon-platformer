@@ -31,7 +31,6 @@ public class Crocodile : Enemy, IShootable
         Init(30);
         BulletWaitTime = 0.0f;
         BulletTimer = 6.0f;
-        DamageHit = 30;
         AttackRange = 6f;
         player = GameObject.FindObjectOfType<Player>();
     }

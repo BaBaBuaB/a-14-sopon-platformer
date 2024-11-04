@@ -32,6 +32,7 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+
         Debug.Log($"Character takes {damage}! Remaining Health = {Health}.");
 
         IsDead();

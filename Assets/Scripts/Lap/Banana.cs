@@ -14,9 +14,19 @@ public class Banana : Weapon
         Move();
     }
 
+    private void FixedUpdate()
+    {
+        SelfDestroy();
+    }
+
     public override void OnHitWith(Character character)
     {
 
+    }
+
+    public override void SelfDestroy()
+    {
+        base.SelfDestroy();
     }
 
     public override void Move()

@@ -30,6 +30,7 @@ public class Player : Character, IShootable
     private void FixedUpdate()
     {
         BulletWaitTime += Time.fixedDeltaTime;
+
         if (Input.GetButtonDown("Fire1") && BulletWaitTime > BulletTimer)
         {
             Shoot();
