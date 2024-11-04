@@ -14,11 +14,6 @@ public class Rock : Weapon
         Move();
     }
 
-    private void FixedUpdate()
-    {
-        SelfDestroy();
-    }
-
     public override void OnHitWith(Character character)
     {
 

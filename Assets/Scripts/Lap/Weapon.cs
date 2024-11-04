@@ -27,7 +27,7 @@ public abstract class Weapon : MonoBehaviour
 
         if (timeDestroy == 5f)
         {
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
 
         timeDestroy += 1f;

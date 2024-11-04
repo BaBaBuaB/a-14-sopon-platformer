@@ -7,6 +7,7 @@ public class Player : Character, IShootable
 {
     [field: SerializeField]
     GameObject bullet;
+
     public GameObject Bullet
     { get { return bullet; } set { bullet = value; } }
 
@@ -56,7 +57,7 @@ public class Player : Character, IShootable
         {
             GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
-            Destroy(obj);
+            Destroy(obj,3);
 
             BulletWaitTime = 0;
         }

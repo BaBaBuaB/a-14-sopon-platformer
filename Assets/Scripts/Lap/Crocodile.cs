@@ -56,12 +56,13 @@ public class Crocodile : Enemy, IShootable
 
     public void Shoot()
     {
+
         if (BulletWaitTime >= BulletTimer)
         {
-            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);     
 
-            Destroy(obj);
-            
+            Destroy(obj,5);
+
             BulletWaitTime = 0;
         }
     }
