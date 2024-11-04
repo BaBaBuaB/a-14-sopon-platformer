@@ -23,21 +23,20 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void SelfDestroy()
     {
-        float currentTime = 0f;
-        float destroyTime = 2f;
+        float timeDestroy = 0;
 
-        currentTime += Time.fixedDeltaTime;
-
-        if (currentTime == destroyTime)
+        if (timeDestroy == 5f)
         {
-            Destroy(this.gameObject);
-            currentTime = 0f;
-            Debug.Log($"Already destroy!");
+            Destroy(gameObject);
         }
+
+        timeDestroy += 1f;
     }
 
     public int GetShootDirection() 
     {
+        Destroy(gameObject);
         return 1; 
+        
     }
 }

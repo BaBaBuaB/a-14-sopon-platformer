@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : Character, IShootable
@@ -20,21 +21,33 @@ public class Player : Character, IShootable
     public float BulletTimer
     { get; set; }
 
+    //public HealthBar healthBar;
+
     private void Awake()
     {
         Init(100);
         BulletWaitTime = 0.0f;
         BulletTimer = 1.0f;
+        //healthBar.SetMaxValue(Health);
     }
 
     private void FixedUpdate()
     {
         BulletWaitTime += Time.fixedDeltaTime;
+        
 
         if (Input.GetButtonDown("Fire1") && BulletWaitTime > BulletTimer)
         {
             Shoot();
         }
+
+        /*
+        if (Input.GetKey(KeyCode.F))
+        {
+            TakeDamage(10);
+            healthBar.UpdateHealthBar(Health);
+        }
+        */
     }
 
     public void Shoot()
@@ -42,6 +55,9 @@ public class Player : Character, IShootable
         if (BulletWaitTime >= BulletTimer)
         {
             GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+
+            Destroy(obj);
+
             BulletWaitTime = 0;
         }
     }

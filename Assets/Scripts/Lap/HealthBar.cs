@@ -3,18 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayBar : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    public Gradient gradient;
+    public Image fill;
 
-    public void UpdateHealthBar(float currentValue, float maxValue)
+    public void SetMaxValue(int health)
     {
-        slider.value = currentValue / maxValue;
+        slider.maxValue = health;
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(1f);
     }
+    
 
-    private void Update()
+    public void UpdateHealthBar(int health)
     {
-        UpdateHealthBar(slider.value, slider.maxValue);
+        slider.value = health;
+
+        fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 }
 

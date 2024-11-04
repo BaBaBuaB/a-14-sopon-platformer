@@ -19,11 +19,6 @@ public class Rock : Weapon
         SelfDestroy();
     }
 
-    public override void SelfDestroy()
-    {
-        base.SelfDestroy();
-    }
-
     public override void OnHitWith(Character character)
     {
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Crocodile : Enemy, IShootable
@@ -58,6 +59,9 @@ public class Crocodile : Enemy, IShootable
         if (BulletWaitTime >= BulletTimer)
         {
             GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+
+            Destroy(obj);
+            
             BulletWaitTime = 0;
         }
     }

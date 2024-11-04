@@ -5,6 +5,7 @@ using UnityEngine;
 public class Banana : Weapon
 {
     [SerializeField]private float speed;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -22,11 +23,6 @@ public class Banana : Weapon
     public override void OnHitWith(Character character)
     {
 
-    }
-
-    public override void SelfDestroy()
-    {
-        base.SelfDestroy();
     }
 
     public override void Move()
