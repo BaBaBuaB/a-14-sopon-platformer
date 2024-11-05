@@ -11,9 +11,15 @@ public abstract class Character : MonoBehaviour
         set { health = value; }
     }
 
+    public HealthBar healthBar;
+
+
     public void Init(int newHealth)
     {
         Health = newHealth;
+
+        anime = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public Animator anime;
@@ -32,6 +38,8 @@ public abstract class Character : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Health -= damage;
+
+        healthBar.UpdateHealthBar(Health);
 
         Debug.Log($"Character takes {damage}! Remaining Health = {Health}.");
 

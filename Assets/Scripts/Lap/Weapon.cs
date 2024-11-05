@@ -12,31 +12,32 @@ public abstract class Weapon : MonoBehaviour
         get { return damage; }
         set { damage = value; }
     }
-    protected string owner;
 
-    public void Init(int _damage)
+    public IShootable shooter;
+
+    public void Init(int _damage, IShootable owner)
     {
-      Damage = _damage;
+        Damage = _damage;
+        shooter = owner;
     }
+
     public abstract void OnHitWith(Character character);
     public abstract void Move();
 
-    public virtual void SelfDestroy()
-    {
-        float timeDestroy = 0;
-
-        if (timeDestroy == 5f)
-        {
-            Destroy(this.gameObject);
-        }
-
-        timeDestroy += 1f;
-    }
-
     public int GetShootDirection() 
     {
-        Destroy(gameObject);
-        return 1; 
-        
+        float shootDir = shooter.BulletSpawnPoint.position.x - shooter.BulletSpawnPoint.parent.position.x;
+
+        if (shootDir > 0)
+        {
+            return 1; 
+        }
+        else return -1;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        OnHitWith(other.GetComponent<Character>());
+        Destroy(this.gameObject,3);
     }
 }

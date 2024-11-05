@@ -9,8 +9,11 @@ public class Ant : Enemy
 
     public void Start()
     {
+        DamageHit = 30;
         rb = GetComponent<Rigidbody2D>();
-        Init(10);
+        Init(40);
+        healthBar.SetMaxValue(Health);
+
         Debug.Log($"Ant's Hp = {Health}");
     }
 

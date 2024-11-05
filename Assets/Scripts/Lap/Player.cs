@@ -22,14 +22,12 @@ public class Player : Character, IShootable
     public float BulletTimer
     { get; set; }
 
-    //public HealthBar healthBar;
-
     private void Awake()
     {
         Init(100);
         BulletWaitTime = 0.0f;
         BulletTimer = 1.0f;
-        //healthBar.SetMaxValue(Health);
+        healthBar.SetMaxValue(Health);
     }
 
     private void FixedUpdate()
@@ -41,25 +39,36 @@ public class Player : Character, IShootable
         {
             Shoot();
         }
-
-        /*
-        if (Input.GetKey(KeyCode.F))
-        {
-            TakeDamage(10);
-            healthBar.UpdateHealthBar(Health);
-        }
-        */
+        
     }
 
     public void Shoot()
     {
         if (BulletWaitTime >= BulletTimer)
         {
-            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+            GameObject objBanana = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
 
-            Destroy(obj,3);
+            Banana banana = objBanana.GetComponent<Banana>();
+
+            banana.Init(20, this);
 
             BulletWaitTime = 0;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+
+        if (enemy != null) 
+        {
+            OnHitWith(enemy);
+        }
+    }
+
+    public void OnHitWith(Enemy enemy)
+    {
+        TakeDamage(enemy.DamageHit);
+    }
+
 }

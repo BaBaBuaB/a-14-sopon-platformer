@@ -29,11 +29,13 @@ public class Crocodile : Enemy, IShootable
 
     private void Start()
     {
-        Init(30);
+        DamageHit = 50;
+        Init(80);
         BulletWaitTime = 0.0f;
-        BulletTimer = 6.0f;
+        BulletTimer = 4.0f;
         AttackRange = 6f;
         player = GameObject.FindObjectOfType<Player>();
+        healthBar.SetMaxValue(Health);
     }
 
     private void FixedUpdate()
@@ -56,12 +58,17 @@ public class Crocodile : Enemy, IShootable
 
     public void Shoot()
     {
+        
 
         if (BulletWaitTime >= BulletTimer)
         {
-            GameObject obj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);     
+            anime.SetTrigger("Shoot");
 
-            Destroy(obj,5);
+            GameObject rockObj = Instantiate(bullet, bulletSpawnPoint.position, Quaternion.identity);
+
+            Rock rockScript = rockObj.GetComponent<Rock>();
+
+            rockScript.Init(20 , this);
 
             BulletWaitTime = 0;
         }
