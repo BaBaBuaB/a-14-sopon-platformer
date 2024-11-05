@@ -13,7 +13,6 @@ public abstract class Character : MonoBehaviour
 
     public HealthBar healthBar;
 
-
     public void Init(int newHealth)
     {
         Health = newHealth;
