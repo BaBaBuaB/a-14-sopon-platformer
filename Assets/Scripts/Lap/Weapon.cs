@@ -6,9 +6,9 @@ using UnityEngine.TextCore.Text;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField]private int damage;
-    public int Damage 
-    {  
+    [SerializeField] private int damage;
+    public int Damage
+    {
         get { return damage; }
         set { damage = value; }
     }

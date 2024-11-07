@@ -50,7 +50,7 @@ public class Player : Character, IShootable
 
             Banana banana = objBanana.GetComponent<Banana>();
 
-            banana.Init(20, this);
+            banana.Init(20,this);
 
             BulletWaitTime = 0;
         }

@@ -68,7 +68,7 @@ public class Crocodile : Enemy, IShootable
 
             Rock rockScript = rockObj.GetComponent<Rock>();
 
-            rockScript.Init(20 , this);
+            rockScript.Init(20, this);
 
             BulletWaitTime = 0;
         }
