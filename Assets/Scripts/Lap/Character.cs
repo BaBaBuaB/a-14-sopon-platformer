@@ -8,7 +8,10 @@ public abstract class Character : MonoBehaviour
     public int Health
     { 
         get { return health; }
-        set { health = value; }
+        set 
+        {
+            health = Mathf.Clamp(value, 0, value);  
+        }
     }
 
     public HealthBar healthBar;
